@@ -1,10 +1,7 @@
 #define MY_DEV_IRQ  5      // device uses IRQ 5 
 #define MY_DEV_PRIO  2       // device uses interrupt priority 2 level privilege
-// argument passed to my_isr(), in this case a pointer to the device 
 #define MY_ISR_ARG  DEVICE_GET(my_device)
 #define MY_IRQ_FLAGS 0       // IRQ flags 
-
-
 
 #define CYCCNT 0xE0001004
 #define CPICNT 0xE0001008

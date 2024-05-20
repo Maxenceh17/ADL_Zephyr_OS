@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2020 BayLibre, SAS
- *
- * SPDX-License-Identifier: Apache-2.0
- */
-
-
 #define CYCCNT 0xE0001004
 #define CPICNT 0xE0001008
 #define EXCCNT 0xE000100C

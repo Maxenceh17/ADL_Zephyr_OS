@@ -1,5 +1,4 @@
 
-
 #define CYCCNT 0xE0001004
 #define CPICNT 0xE0001008
 #define EXCCNT 0xE000100C
@@ -45,8 +44,6 @@ void user_thread_function(void *p1, void *p2, void *p3)
 		instruction_counter		= (*DWT_CYCCNT - *DWT_CPICNT - *DWT_EXCCNT - *DWT_SLEEPCNT - *DWT_LSUCNT + *DWT_FOLDCNT)
 										- instruction_counter;
 		cycle_counter	 		= *DWT_CYCCNT - cycle_counter;
-
-		//irq_disable(MY_DEV_IRQ);
 
 		printf("User thread : (%p) 	Instruction Counter : %d	Cycle Counter : %d \n",thread,instruction_counter,cycle_counter);
 		
