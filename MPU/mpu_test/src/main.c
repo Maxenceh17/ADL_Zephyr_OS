@@ -18,7 +18,8 @@
 	shell_fprintf(sh, SHELL_ERROR, fmt, ##__VA_ARGS__)
 
 /* S'assurer que toute la memoire est protegee (FLASH + SRAM)*/
-#define RESERVED_MEM_MAP  (CONFIG_SRAM_BASE_ADDRESS + 0xA0000)
+#define RESERVED_MEM_MAP  (CONFIG_FLASH_BASE_ADDRESS + 0xA0000)
+#define FLASH_MEM         CONFIG_FLASH_BASE_ADDRESS
 #define RAM_MEM           CONFIG_SRAM_BASE_ADDRESS
 
 /* Les commandes pour tester MPU */
@@ -59,7 +60,7 @@ static int cmd_run(const struct shell *sh, size_t argc, char *argv[])
 	ARG_UNUSED(argc);
 	ARG_UNUSED(argv);
 
-	void (*func_ptr)(void) = (void (*)(void)) RESERVED_MEM_MAP;
+	void (*func_ptr)(void) = (void (*)(void)) RAM_MEM;
 
 	/* Executer depuis une memoire protegee */
 	func_ptr();
